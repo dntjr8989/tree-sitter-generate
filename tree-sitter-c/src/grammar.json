@@ -4335,12 +4335,8 @@
           "name": "labeled_statement"
         },
         {
-          "type": "FIELD",
-          "name": "block",
-          "content": {
-            "type": "SYMBOL",
-            "name": "compound_statement"
-          }
+          "type": "SYMBOL",
+          "name": "compound_statement"
         },
         {
           "type": "SYMBOL",
@@ -4634,35 +4630,47 @@
             "value": ":"
           },
           {
-            "type": "REPEAT",
-            "content": {
-              "type": "FIELD",
-              "name": "body",
-              "content": {
-                "type": "SYMBOL",
-                "name": "case_statement_body"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "body",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "case_statement_body"
+                }
+              },
+              {
+                "type": "BLANK"
               }
-            }
+            ]
           }
         ]
       }
     },
     "case_statement_body": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_non_case_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "declaration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "type_definition"
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_non_case_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type_definition"
+            }
+          ]
         }
-      ]
+      }
     },
     "while_statement": {
       "type": "SEQ",

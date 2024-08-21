@@ -670,7 +670,7 @@ module.exports = grammar({
     _non_case_statement: $ => choice(
       $.attributed_statement,
       $.labeled_statement,
-      field("block", $.compound_statement),
+      $.compound_statement,
       $.expression_statement,
       $.if_statement,
       $.switch_statement,
@@ -741,14 +741,14 @@ module.exports = grammar({
         'default',
       ),
       ':',
-      repeat(field('body', $.case_statement_body)),
+      optional(field('body', $.case_statement_body))
     )),
 
-    case_statement_body : $ => choice(
+    case_statement_body : $ => prec.right(repeat1(choice(
        $._non_case_statement,
        $.declaration,
        $.type_definition,
-     ),
+     ))),
 
     while_statement: $ => seq(
       'while',

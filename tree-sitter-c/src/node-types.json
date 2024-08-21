@@ -882,7 +882,7 @@
     "named": true,
     "fields": {
       "body": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
           {
@@ -906,21 +906,10 @@
   {
     "type": "case_statement_body",
     "named": true,
-    "fields": {
-      "block": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "compound_statement",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
         {
           "type": "attributed_statement",
@@ -928,6 +917,10 @@
         },
         {
           "type": "break_statement",
+          "named": true
+        },
+        {
+          "type": "compound_statement",
           "named": true
         },
         {
