@@ -906,10 +906,21 @@
   {
     "type": "case_statement_body",
     "named": true,
-    "fields": {},
+    "fields": {
+      "block": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "compound_statement",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "attributed_statement",
@@ -917,10 +928,6 @@
         },
         {
           "type": "break_statement",
-          "named": true
-        },
-        {
-          "type": "compound_statement",
           "named": true
         },
         {

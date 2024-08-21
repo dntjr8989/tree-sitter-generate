@@ -670,7 +670,7 @@ module.exports = grammar({
     _non_case_statement: $ => choice(
       $.attributed_statement,
       $.labeled_statement,
-      $.compound_statement,
+      field("block", $.compound_statement),
       $.expression_statement,
       $.if_statement,
       $.switch_statement,

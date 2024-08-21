@@ -4335,8 +4335,12 @@
           "name": "labeled_statement"
         },
         {
-          "type": "SYMBOL",
-          "name": "compound_statement"
+          "type": "FIELD",
+          "name": "block",
+          "content": {
+            "type": "SYMBOL",
+            "name": "compound_statement"
+          }
         },
         {
           "type": "SYMBOL",
